@@ -1,0 +1,15 @@
+{% extends 'menu.html' %}
+{% block content %}
+<h3>Confirmer la suppression du medecin {{ medecin.first_name }}</h3>
+<p>Matricule : {{ medecin.matricule }}</p>
+<p>Nom : {{ medecin.first_name }}</p>
+<p>Prenom : {{ medecin.last_name }}</p>
+<p>Email : {{ medecin.email }}</p>
+<p>Spécialité : {{ medecin.specialite }}</p>
+<p>Addresse professionnel : {{ medecin.adress_Pro }}</p>
+
+<form method="POST" class="form-control">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+</form>
+{% endblock content %}

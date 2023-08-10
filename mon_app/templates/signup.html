@@ -1,0 +1,24 @@
+{% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inscription</title>
+</head>
+<body>
+    <h1>Inscription</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            <label for="id_username">Nom d'utilisateur:</label>
+            <input type="text" name="username" maxlength="150" required="" id="id_username">
+        </p>
+        <p>
+            <label for="id_password">Mot de passe:</label>
+            <input type="password" name="password" required="" id="id_password">
+        </p>
+        <button type="submit" class="btn btn-primary">S'inscrire</button>
+    </form>
+</body>
+</html>

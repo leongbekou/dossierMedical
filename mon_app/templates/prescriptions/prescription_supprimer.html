@@ -1,0 +1,13 @@
+{% extends 'menu.html' %}
+{% block content %}
+<h3>Confirmer la suppression de la consultation {{ patient.first_name }}</h3>
+<p>Ordonnance : {{ prescription.ordonnance }}</p>
+<p>Nom : {{ prescription.analyse }}</p>
+<p>Prenom : {{ prescription.radiologie }}</p>
+<p>Email : {{ prescription.consultation }}</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+</form>
+{% endblock content %}

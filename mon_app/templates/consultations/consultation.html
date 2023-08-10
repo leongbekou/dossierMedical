@@ -1,0 +1,30 @@
+{% extends 'menu.html' %}
+{% block content %}
+<main>
+    <h3>Ajouter une nouvelle consultation</h3>
+    <form method="post" class="my-form">
+        <div>
+            <p>
+                <label for="id_patient">Patient:</label>
+                <select name="patient" required="" id="id_patient">
+                <option value="" selected="">---------</option>
+                </select>
+            </p>
+            <p>
+                <label for="id_medecin">Medecin:</label>
+                <select name="medecin" required="" id="id_medecin">
+                <option value="" selected="">---------</option>
+
+                <option value="2">tita tata</option>
+                </select>
+            </p>
+            <p>
+                <label for="id_diagnostic">Diagnostic:</label>
+                <textarea name="diagnostic" cols="40" rows="10" required="" id="id_diagnostic"></textarea>
+            </p>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </div>
+        
+    </form>
+</main>
+{% endblock content %}

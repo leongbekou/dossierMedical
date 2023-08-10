@@ -1,0 +1,13 @@
+{% extends 'menu.html' %}
+{% block content %}
+<h3>Confirmer la suppression du rendez_vous de M/Mme {{ patient.first_name }}</h3>
+<p>Libelle : {{ rendez_vs.libelle }}</p>
+<p>Date prévue : {{ rendez_vs.datePrevu }}</p>
+<p>Patient : {{ rendez_vs.patient }}</p>
+<p>Medecin : {{ rendez_vs.medecin }}</p>
+
+<form method="POST" class="">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+</form>
+{% endblock content %}

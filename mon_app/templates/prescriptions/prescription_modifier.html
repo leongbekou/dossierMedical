@@ -1,0 +1,10 @@
+{% extends 'menu.html' %}
+{% block content %}
+<form method="post" class="form-control">
+    <div class="mb-3">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </div>
+</form>
+{% endblock content %}

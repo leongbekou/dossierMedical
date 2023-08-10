@@ -1,0 +1,45 @@
+{% extends 'menu.html' %}
+{% block content %}
+<table class="table" border ="1px">
+    <thead>
+      <tr>
+        <th>Libellé</th>
+        <th>Date prévue</th>
+        <th>Patient</th>
+        <th>Medecin</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rendez_vs in rendez_vs %}
+      <div class="lecteur-entry ">
+      <tr>
+      <td>{{ rendez_vs.libelle }}</td>
+      <td>{{ rendez_vs.datePrevu }}</td>
+      <td>{{ rendez_vs.patient }}</td>
+      <td>{{ rendez_vs.medecin }}</td>
+      <td>
+        <button class="btn btn-warning" ><a href="{% url 'modifier_rendez_vs' rendez_vs.id %}"> Modifier</button></a>
+        <button class="btn btn-danger"><a href="{% url 'supprimer_rendez_vs' rendez_vs.id %}"> Supprimer</button></a>
+      </td>
+      </tr>
+      </div>
+      {% endfor %}
+      <div class="pagination">
+        <span class="step-links">
+            {% if rendez_vs.has_previous %}
+                <a href="?page=1">&laquo; 1</a>
+                {#<a href="?page={{ rendez_vs.previous_page_number }}">Précédent</a>#}
+            {% endif %}
+    
+            <span class="current-page">{{ rendez_vs.number }}</span>
+    
+            {% if rendez_vs.has_next %}
+                <a href="?page={{ rendez_vs.next_page_number }}">2</a>
+                <a href="?page={{ rendez_vs.paginator.num_pages }}">3 &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    </tbody>
+  </table>
+{% endblock content %}

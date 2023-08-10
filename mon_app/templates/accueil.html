@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+   <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Gestion de dossiers médicaux</title>
+        <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+  </head>
+  <body>
+      <div class="container">
+        <header>
+            <ul class="nav bg-info">
+                  <li><a  class="nav-link link-light" href="signup">Inscription</a></li>
+                  <li><a class="nav-link link-light" href="index">Connexion</a></li>
+              </ul>
+        </header>
+        <main>
+          <img style="width: 500px;height: auto;" src="https://th.bing.com/th/id/R.ab4dad95fc9565e098d826771d34b44f?rik=2jcuG1y6xG7Abg&pid=ImgRaw&r=0" class="img">
+        </main>
+        <footer style ="background-color: black; color: white;">
+          <p>contact :  +228 90 33 84 32</p>
+          <p>Email : gbekouleon@gmail.com</p>
+        </footer>
+      </div>
+  </body>
+</html>

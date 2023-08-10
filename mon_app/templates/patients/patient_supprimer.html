@@ -1,0 +1,15 @@
+{% extends 'menu.html' %}
+{% block content %}
+<h3>Confirmer la suppression du patient {{ patient.first_name }}</h3>
+<p>Matricule : {{ patient.matricule }}</p>
+<p>Nom : {{ patient.first_name }}</p>
+<p>Prenom : {{ patient.last_name }}</p>
+<p>Email : {{ patient.email }}</p>
+<p>Age: {{patient.age}}</p>
+
+<form method="POST" class="">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+
+</form>
+{% endblock content %}

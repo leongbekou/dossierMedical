@@ -1,0 +1,47 @@
+{% extends 'menu.html' %}
+{% block content %}
+<table class="table" border="1px">
+    <thead>
+      <tr>
+        <th>Ordonnance</th>
+        <th>Analyse</th>
+        <th>Radiologie</th>
+        <th>consultation</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for prescription in prescriptions %}
+      <div class="lecteur-entry ">
+      <tr>
+      <td>{{ prescription.ordonnance }}</td>
+      <td>{{ prescription.analyse }}</td>
+      <td>{{ prescription.radiologie }}</td>
+      <td>{{ prescription.consultation.patient }}</td>
+      <td>
+        <button class="btn btn-warning" ><a href="{% url 'modifier_prescription' prescription.id %}"> Modifier</button></a>
+        <button class="btn btn-danger"><a href="{% url 'supprimer_prescription' prescription.id %}"> Supprimer</button></a>
+      </td>
+      </tr>
+      </div>
+      {% endfor %}
+      <div class="pagination">
+        <span class="step-links">
+            {% if prescriptions.has_previous %}
+                <a href="?page=1">&laquo; 1</a>
+                {#<a href="?page={{ prescriptions.previous_page_number }}">Précédent</a>#}
+            {% endif %}
+    
+            <span class="current-page">{{ prescriptions.number }}</span>
+    
+            {% if prescriptions.has_next %}
+                <a href="?page={{ prescriptions.next_page_number }}">2</a>
+                <a href="?page={{ prescriptions.paginator.num_pages }}">3 &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    </tbody>
+  </table>
+{% endblock content %}
+
+      

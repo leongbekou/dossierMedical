@@ -1,0 +1,51 @@
+{% extends 'menu.html' %}
+{% block content %}
+</form>
+<table class="table" border="1Ppx">
+    <thead>
+      <tr>
+        <th>Matricule</th>
+        <th>Nom</th>
+        <th>Prenoms</th>
+        <th>Email</th>
+        <th>Spécialité</th>
+        <th>Addresse profectionnelle</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for medecin in medecins %}
+      <div class="lecteur-entry ">
+      <tr>
+      <td>{{ medecin.matricule }}</td>
+      <td>{{ medecin.last_name }}</td>
+      <td>{{ medecin.first_name }}</td>
+      <td>{{ medecin.email }}</td>
+      <td>{{ medecin.specialite }}</td>
+      <td>{{ medecin.adress_Pro }}</td>
+      <td>
+        <button class="btn btn-warning" ><a href="{% url 'modifier_medecin' medecin.id %}"> Modifier</button></a>
+        <button class="btn btn-danger"><a href="{% url 'supprimer_medecin' medecin.id %}"> Supprimer</button></a>
+      </td>
+     
+      </tr>
+      </div>
+      {% endfor %}
+      <div class="pagination">
+        <span class="step-links">
+            {% if medecins.has_previous %}
+                <a href="?page=1">&laquo; 1</a>
+                {#<a href="?page={{ medecins.previous_page_number }}">Précédent</a>#}
+            {% endif %}
+    
+            <span class="current-page">{{ medecins.number }}</span>
+    
+            {% if medecins.has_next %}
+                <a href="?page={{ medecins.next_page_number }}">2</a>
+                <a href="?page={{ medecins.paginator.num_pages }}">3 &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    </tbody>
+  </table>
+{% endblock content %}

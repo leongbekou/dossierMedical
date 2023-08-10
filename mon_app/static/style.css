@@ -1,0 +1,28 @@
+.my-form{
+    width: 1px;
+}
+
+h1{
+    width:auto;
+}
+
+
+p label{
+    width: 150px;
+}
+p input{
+    width: 150px;
+}
+.button{
+    width: 150px;
+}
+
+
+.img {
+    width: 500px;
+    height: auto;
+}
+.ft{
+    background-color: black;
+    color: white;
+}

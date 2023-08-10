@@ -1,0 +1,11 @@
+{% extends 'menu.html' %}
+{% block content %}
+<h3>Ajouter un nouveau medecin</h3>
+<form method="post" class="my-form">
+    <div class="mb-3">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </div>
+</form>
+{% endblock content %}
